@@ -32,15 +32,6 @@ class MovieCard extends StatelessWidget {
                 height: 200,
                 radius: 8,
               ),
-              // ClipRRect(
-              //   borderRadius: BorderRadius.circular(8),
-              //   child: Image.network(
-              //     movie.poster,
-              //     fit: BoxFit.cover,
-              //     height: 200,
-              //     width: double.infinity,
-              //   ),
-              // ),
               const SizedBox(height: 8),
               // Display movie title
               Padding(
@@ -68,8 +59,10 @@ class MovieCard extends StatelessWidget {
                     if (movie.imdbRating.isNotEmpty)
                       Text(
                         movie.imdbRating,
-                        style:
-                            const TextStyle(fontSize: 12, color: Colors.amber),
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.amber,
+                        ),
                       ),
                   ],
                 ),
