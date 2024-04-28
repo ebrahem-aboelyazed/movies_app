@@ -9,7 +9,6 @@ This project is using [OMDb] api for fetching movies data, API Keys are restored
 To make the app work properly please create a .env file and add the following keys with the values
 that you will get from the [OMDb] API
 [OMDB_API_KEY] This corresponds to the [apikey]
-[OMDB_API_ID] This corresponds to the [i] you attach in the query parameters for the requests
 
 
 ## Working with Translations 🌐

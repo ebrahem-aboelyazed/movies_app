@@ -12,7 +12,6 @@ abstract class RegisterModule {
           receiveDataWhenStatusError: true,
           connectTimeout: const Duration(seconds: 10),
           queryParameters: {
-            'i': dotenv.env[AppConstants.omdbApiIdName],
             'apiKey': dotenv.env[AppConstants.omdbApiKeyName],
           },
         ),
