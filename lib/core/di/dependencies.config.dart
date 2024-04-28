@@ -29,7 +29,7 @@ extension GetItInjectableX on _i1.GetIt {
     );
     final registerModule = _$RegisterModule();
     gh.factory<_i3.Dio>(() => registerModule.dio);
-    gh.singleton<_i4.BaseApi>(() => _i5.BaseApiImpl(gh<_i3.Dio>()));
+    gh.singleton<_i4.BaseApi>(() => _i5.BaseApiImpl(gh<_i3.Dio>())..init());
     return this;
   }
 }

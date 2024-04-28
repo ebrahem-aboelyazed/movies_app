@@ -9,6 +9,11 @@ import 'package:movies_app/core/core.dart';
 class BaseApiImpl implements BaseApi {
   BaseApiImpl(this._dio);
 
+  @PostConstruct()
+  void init() {
+    _dio.interceptors.add(BaseApiInterceptor());
+  }
+
   final Dio _dio;
 
   @override
@@ -125,19 +130,17 @@ class BaseApiImpl implements BaseApi {
       case RequestStatus.noContent:
         return Right(response);
       case RequestStatus.unAuthorized:
-        return Left(
-          Failure(
-            statusCode: response.statusCode,
-            message: 'Unauthorized',
-          ),
+        final failure = Failure(
+          statusCode: response.statusCode,
+          message: 'Unauthorized',
         );
+        return Left(failure);
       default:
-        return Left(
-          Failure(
-            statusCode: response.statusCode,
-            message: 'Error',
-          ),
+        final failure = Failure(
+          statusCode: response.statusCode,
+          message: 'Error',
         );
+        return Left(failure);
     }
   }
 }

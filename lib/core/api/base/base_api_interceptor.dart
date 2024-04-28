@@ -4,11 +4,6 @@ import 'package:dio/dio.dart';
 
 class BaseApiInterceptor implements Interceptor {
   @override
-  void onError(DioException err, ErrorInterceptorHandler handler) {
-    handler.next(err);
-  }
-
-  @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers['content-type'] = 'application/json';
     options.headers['accept'] = 'application/json';
@@ -22,5 +17,10 @@ class BaseApiInterceptor implements Interceptor {
     ResponseInterceptorHandler handler,
   ) {
     handler.next(response);
+  }
+
+  @override
+  void onError(DioException error, ErrorInterceptorHandler handler) {
+    handler.next(error);
   }
 }
