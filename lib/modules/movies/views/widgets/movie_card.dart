@@ -18,9 +18,7 @@ class MovieCard extends StatelessWidget {
       closedBuilder: (context, action) {
         return Container(
           decoration: BoxDecoration(
-            border: Border.all(
-              color: AppColors.borderColor,
-            ),
+            border: Border.all(color: AppColors.borderColor),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Column(
@@ -56,14 +54,6 @@ class MovieCard extends StatelessWidget {
                       style: const TextStyle(fontSize: 12, color: Colors.grey),
                     ),
                     const SizedBox(width: 8),
-                    if (movie.imdbRating.isNotEmpty)
-                      Text(
-                        movie.imdbRating,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: Colors.amber,
-                        ),
-                      ),
                   ],
                 ),
               ),

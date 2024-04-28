@@ -8,4 +8,3 @@ export './views/movie_details_page.dart';
 export './views/movies_view.dart';
 export './views/widgets/movie_card.dart';
 export './views/widgets/movies_grid_view.dart';
-

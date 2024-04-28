@@ -21,10 +21,10 @@ import 'register_module.dart' as _i9;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
-  _i1.GetIt init({
+  Future<_i1.GetIt> init({
     String? environment,
     _i2.EnvironmentFilter? environmentFilter,
-  }) {
+  }) async {
     final gh = _i2.GetItHelper(
       this,
       environment,
@@ -33,7 +33,13 @@ extension GetItInjectableX on _i1.GetIt {
     final registerModule = _$RegisterModule();
     gh.factory<_i3.Dio>(() => registerModule.dio);
     gh.singleton<_i4.AppPages>(() => _i4.AppPages());
-    gh.singleton<_i5.BaseApi>(() => _i6.BaseApiImpl(gh<_i3.Dio>())..init());
+    await gh.singletonAsync<_i5.BaseApi>(
+      () {
+        final i = _i6.BaseApiImpl(gh<_i3.Dio>());
+        return i.init().then((_) => i);
+      },
+      preResolve: true,
+    );
     gh.lazySingleton<_i7.MoviesService>(
         () => _i8.MoviesServiceImpl(gh<_i5.BaseApi>()));
     return this;

@@ -4,6 +4,7 @@ import 'package:movies_app/core/core.dart';
 import 'package:movies_app/l10n/l10n.dart';
 import 'package:movies_app/modules/movies/movies.dart';
 import 'package:movies_app/routes/routes.dart';
+import 'package:movies_app/utils/utils.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -26,6 +27,7 @@ class App extends StatelessWidget {
           routerConfig: getIt.get<AppPages>().router,
           debugShowCheckedModeBanner: false,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
+          theme: lightTheme,
           supportedLocales: AppLocalizations.supportedLocales,
         ),
       ),

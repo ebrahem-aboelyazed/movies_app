@@ -51,7 +51,6 @@ class MoviesServiceImpl implements MoviesService {
         queryParameters: params,
       );
       return response.fold(Left.new, (r) {
-        print('data ===>${r.data}');
         final result = r.data as Map<String, dynamic>;
         final isRejected = result['Response'] == 'False';
         if (isRejected) {

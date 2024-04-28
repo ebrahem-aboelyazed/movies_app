@@ -8,7 +8,7 @@ class AppHelper {
   static Future<void> configureApp() async {
     WidgetsFlutterBinding.ensureInitialized();
     await _loadEnv();
-    configureDependencies();
+    await configureDependencies();
   }
 
   static Future<void> _loadEnv() async {

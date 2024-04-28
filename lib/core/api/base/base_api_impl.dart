@@ -9,12 +9,12 @@ import 'package:movies_app/core/core.dart';
 class BaseApiImpl implements BaseApi {
   BaseApiImpl(this._dio);
 
-  @PostConstruct()
-  void init() {
+  final Dio _dio;
+
+  @PostConstruct(preResolve: true)
+  Future<void> init() async {
     _dio.interceptors.add(BaseApiInterceptor());
   }
-
-  final Dio _dio;
 
   @override
   Future<Either<Failure, Response<dynamic>>> postData(

@@ -8,4 +8,4 @@ final getIt = GetIt.instance;
   initializerName: 'init', // default
   preferRelativeImports: true, // default
 )
-void configureDependencies() => getIt.init();
+Future<void> configureDependencies() => getIt.init();

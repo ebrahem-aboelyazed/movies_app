@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:movies_app/core/core.dart';
 import 'package:movies_app/modules/movies/movies.dart';
+import 'package:movies_app/utils/utils.dart';
 
 part 'movies_cubit.freezed.dart';
 part 'movies_state.dart';
@@ -22,22 +24,29 @@ class MoviesCubit extends Cubit<MoviesState> {
 
   Future<void> searchMovies() async {
     page = 1;
-    moviesList.clear();
     endOfList = false;
     if (name.isEmpty) {
+      moviesList.clear();
       emit(const MoviesState.initial());
       return;
     }
-    emit(const MoviesState.loading());
-    final response = await moviesService.searchMovies(
-      name: name,
-      page: page,
-    );
-    response.fold(
-      (failure) => emit(MoviesState.failure(failure)),
-      (movies) {
-        moviesList.addAll(movies);
-        emit(MoviesState.loaded(movies));
+    EasyDebounce.debounce(
+      AppConstants.moviesSearchDebounce,
+      const Duration(milliseconds: 350),
+      () async {
+        moviesList.clear();
+        emit(const MoviesState.loading());
+        final response = await moviesService.searchMovies(
+          name: name,
+          page: page,
+        );
+        response.fold(
+          (failure) => emit(MoviesState.failure(failure)),
+          (movies) {
+            moviesList.addAll(movies);
+            emit(MoviesState.loaded(movies));
+          },
+        );
       },
     );
   }
@@ -52,11 +61,7 @@ class MoviesCubit extends Cubit<MoviesState> {
     response.fold(
       (failure) => emit(MoviesState.loaded(moviesList)),
       (movies) {
-        if (movies.isNotEmpty) {
-          moviesList.addAll(movies);
-        } else {
-          endOfList = true;
-        }
+        movies.isEmpty ? endOfList = true : moviesList.addAll(movies);
         emit(MoviesState.loaded(moviesList));
       },
     );
@@ -70,5 +75,11 @@ class MoviesCubit extends Cubit<MoviesState> {
       },
       (movie) => movie,
     );
+  }
+
+  @override
+  Future<void> close() {
+    EasyDebounce.cancel(AppConstants.moviesSearchDebounce);
+    return super.close();
   }
 }

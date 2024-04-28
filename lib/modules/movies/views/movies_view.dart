@@ -11,18 +11,20 @@ class MoviesView extends StatelessWidget {
     final moviesCubit = context.read<MoviesCubit>();
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            SearchField(
-              onChanged: (value) {
-                moviesCubit
-                  ..name = value
-                  ..searchMovies();
-              },
-            ),
-            Expanded(
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16),
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              const SizedBox(height: 12),
+              SearchField(
+                onChanged: (value) {
+                  moviesCubit
+                    ..name = value
+                    ..searchMovies();
+                },
+              ),
+              const SizedBox(height: 12),
+              Expanded(
                 child: BlocBuilder<MoviesCubit, MoviesState>(
                   buildWhen: (previous, current) {
                     return current is MoviesLoading ||
@@ -50,8 +52,8 @@ class MoviesView extends StatelessWidget {
                   },
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
