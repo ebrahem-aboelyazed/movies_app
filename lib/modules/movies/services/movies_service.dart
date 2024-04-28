@@ -10,4 +10,8 @@ abstract class MoviesService {
     /// Optional parameter for pagination
     int? page,
   });
+
+  Future<Either<Failure, Movie>> getMovieById({
+    required String id,
+  });
 }

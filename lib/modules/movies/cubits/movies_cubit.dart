@@ -24,6 +24,10 @@ class MoviesCubit extends Cubit<MoviesState> {
     page = 1;
     moviesList.clear();
     endOfList = false;
+    if (name.isEmpty) {
+      emit(const MoviesState.initial());
+      return;
+    }
     emit(const MoviesState.loading());
     final response = await moviesService.searchMovies(
       name: name,
@@ -55,6 +59,16 @@ class MoviesCubit extends Cubit<MoviesState> {
         }
         emit(MoviesState.loaded(moviesList));
       },
+    );
+  }
+
+  Future<Movie?> getMovieById({required String id}) async {
+    final response = await moviesService.getMovieById(id: id);
+    return response.fold(
+      (failure) {
+        throw Exception();
+      },
+      (movie) => movie,
     );
   }
 }

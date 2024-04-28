@@ -8,7 +8,7 @@ class MoviesState with _$MoviesState {
 
   const factory MoviesState.loadingMore() = MoviesLoadingMore;
 
-  const factory MoviesState.loaded(List<Movie> clients) = MoviesLoaded;
+  const factory MoviesState.loaded(List<Movie> movies) = MoviesLoaded;
 
   const factory MoviesState.searching(String? search) = MoviesSearching;
 

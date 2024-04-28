@@ -103,7 +103,8 @@ class __$$RatingImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true, fieldRename: FieldRename.pascal)
 class _$RatingImpl implements _Rating {
   const _$RatingImpl({required this.source, required this.value});
 

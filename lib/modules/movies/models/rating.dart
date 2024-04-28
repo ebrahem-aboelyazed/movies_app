@@ -5,6 +5,7 @@ part 'rating.g.dart';
 
 @freezed
 class Rating with _$Rating {
+  @JsonSerializable(explicitToJson: true, fieldRename: FieldRename.pascal)
   const factory Rating({
     required String source,
     required String value,

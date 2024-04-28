@@ -7,6 +7,7 @@ class BaseApiInterceptor implements Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers['content-type'] = 'application/json';
     options.headers['accept'] = 'application/json';
+    log('params ${options.queryParameters}');
     log('Calling ${options.path}');
     handler.next(options);
   }

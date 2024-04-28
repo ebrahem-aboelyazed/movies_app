@@ -21,7 +21,7 @@ mixin _$MoviesState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loadingMore,
-    required TResult Function(List<Movie> clients) loaded,
+    required TResult Function(List<Movie> movies) loaded,
     required TResult Function(String? search) searching,
     required TResult Function(Failure failure) failure,
   }) =>
@@ -31,7 +31,7 @@ mixin _$MoviesState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? loadingMore,
-    TResult? Function(List<Movie> clients)? loaded,
+    TResult? Function(List<Movie> movies)? loaded,
     TResult? Function(String? search)? searching,
     TResult? Function(Failure failure)? failure,
   }) =>
@@ -41,7 +41,7 @@ mixin _$MoviesState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loadingMore,
-    TResult Function(List<Movie> clients)? loaded,
+    TResult Function(List<Movie> movies)? loaded,
     TResult Function(String? search)? searching,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -139,7 +139,7 @@ class _$MoviesInitialImpl implements MoviesInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loadingMore,
-    required TResult Function(List<Movie> clients) loaded,
+    required TResult Function(List<Movie> movies) loaded,
     required TResult Function(String? search) searching,
     required TResult Function(Failure failure) failure,
   }) {
@@ -152,7 +152,7 @@ class _$MoviesInitialImpl implements MoviesInitial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? loadingMore,
-    TResult? Function(List<Movie> clients)? loaded,
+    TResult? Function(List<Movie> movies)? loaded,
     TResult? Function(String? search)? searching,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -165,7 +165,7 @@ class _$MoviesInitialImpl implements MoviesInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loadingMore,
-    TResult Function(List<Movie> clients)? loaded,
+    TResult Function(List<Movie> movies)? loaded,
     TResult Function(String? search)? searching,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -265,7 +265,7 @@ class _$MoviesLoadingImpl implements MoviesLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loadingMore,
-    required TResult Function(List<Movie> clients) loaded,
+    required TResult Function(List<Movie> movies) loaded,
     required TResult Function(String? search) searching,
     required TResult Function(Failure failure) failure,
   }) {
@@ -278,7 +278,7 @@ class _$MoviesLoadingImpl implements MoviesLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? loadingMore,
-    TResult? Function(List<Movie> clients)? loaded,
+    TResult? Function(List<Movie> movies)? loaded,
     TResult? Function(String? search)? searching,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -291,7 +291,7 @@ class _$MoviesLoadingImpl implements MoviesLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loadingMore,
-    TResult Function(List<Movie> clients)? loaded,
+    TResult Function(List<Movie> movies)? loaded,
     TResult Function(String? search)? searching,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -391,7 +391,7 @@ class _$MoviesLoadingMoreImpl implements MoviesLoadingMore {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loadingMore,
-    required TResult Function(List<Movie> clients) loaded,
+    required TResult Function(List<Movie> movies) loaded,
     required TResult Function(String? search) searching,
     required TResult Function(Failure failure) failure,
   }) {
@@ -404,7 +404,7 @@ class _$MoviesLoadingMoreImpl implements MoviesLoadingMore {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? loadingMore,
-    TResult? Function(List<Movie> clients)? loaded,
+    TResult? Function(List<Movie> movies)? loaded,
     TResult? Function(String? search)? searching,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -417,7 +417,7 @@ class _$MoviesLoadingMoreImpl implements MoviesLoadingMore {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loadingMore,
-    TResult Function(List<Movie> clients)? loaded,
+    TResult Function(List<Movie> movies)? loaded,
     TResult Function(String? search)? searching,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -482,7 +482,7 @@ abstract class _$$MoviesLoadedImplCopyWith<$Res> {
           _$MoviesLoadedImpl value, $Res Function(_$MoviesLoadedImpl) then) =
       __$$MoviesLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Movie> clients});
+  $Res call({List<Movie> movies});
 }
 
 /// @nodoc
@@ -496,12 +496,12 @@ class __$$MoviesLoadedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? clients = null,
+    Object? movies = null,
   }) {
     return _then(_$MoviesLoadedImpl(
-      null == clients
-          ? _value._clients
-          : clients // ignore: cast_nullable_to_non_nullable
+      null == movies
+          ? _value._movies
+          : movies // ignore: cast_nullable_to_non_nullable
               as List<Movie>,
     ));
   }
@@ -510,19 +510,19 @@ class __$$MoviesLoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MoviesLoadedImpl implements MoviesLoaded {
-  const _$MoviesLoadedImpl(final List<Movie> clients) : _clients = clients;
+  const _$MoviesLoadedImpl(final List<Movie> movies) : _movies = movies;
 
-  final List<Movie> _clients;
+  final List<Movie> _movies;
   @override
-  List<Movie> get clients {
-    if (_clients is EqualUnmodifiableListView) return _clients;
+  List<Movie> get movies {
+    if (_movies is EqualUnmodifiableListView) return _movies;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_clients);
+    return EqualUnmodifiableListView(_movies);
   }
 
   @override
   String toString() {
-    return 'MoviesState.loaded(clients: $clients)';
+    return 'MoviesState.loaded(movies: $movies)';
   }
 
   @override
@@ -530,12 +530,12 @@ class _$MoviesLoadedImpl implements MoviesLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MoviesLoadedImpl &&
-            const DeepCollectionEquality().equals(other._clients, _clients));
+            const DeepCollectionEquality().equals(other._movies, _movies));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_clients));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_movies));
 
   @JsonKey(ignore: true)
   @override
@@ -549,11 +549,11 @@ class _$MoviesLoadedImpl implements MoviesLoaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loadingMore,
-    required TResult Function(List<Movie> clients) loaded,
+    required TResult Function(List<Movie> movies) loaded,
     required TResult Function(String? search) searching,
     required TResult Function(Failure failure) failure,
   }) {
-    return loaded(clients);
+    return loaded(movies);
   }
 
   @override
@@ -562,11 +562,11 @@ class _$MoviesLoadedImpl implements MoviesLoaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? loadingMore,
-    TResult? Function(List<Movie> clients)? loaded,
+    TResult? Function(List<Movie> movies)? loaded,
     TResult? Function(String? search)? searching,
     TResult? Function(Failure failure)? failure,
   }) {
-    return loaded?.call(clients);
+    return loaded?.call(movies);
   }
 
   @override
@@ -575,13 +575,13 @@ class _$MoviesLoadedImpl implements MoviesLoaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loadingMore,
-    TResult Function(List<Movie> clients)? loaded,
+    TResult Function(List<Movie> movies)? loaded,
     TResult Function(String? search)? searching,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(clients);
+      return loaded(movies);
     }
     return orElse();
   }
@@ -631,9 +631,9 @@ class _$MoviesLoadedImpl implements MoviesLoaded {
 }
 
 abstract class MoviesLoaded implements MoviesState {
-  const factory MoviesLoaded(final List<Movie> clients) = _$MoviesLoadedImpl;
+  const factory MoviesLoaded(final List<Movie> movies) = _$MoviesLoadedImpl;
 
-  List<Movie> get clients;
+  List<Movie> get movies;
   @JsonKey(ignore: true)
   _$$MoviesLoadedImplCopyWith<_$MoviesLoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -707,7 +707,7 @@ class _$MoviesSearchingImpl implements MoviesSearching {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loadingMore,
-    required TResult Function(List<Movie> clients) loaded,
+    required TResult Function(List<Movie> movies) loaded,
     required TResult Function(String? search) searching,
     required TResult Function(Failure failure) failure,
   }) {
@@ -720,7 +720,7 @@ class _$MoviesSearchingImpl implements MoviesSearching {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? loadingMore,
-    TResult? Function(List<Movie> clients)? loaded,
+    TResult? Function(List<Movie> movies)? loaded,
     TResult? Function(String? search)? searching,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -733,7 +733,7 @@ class _$MoviesSearchingImpl implements MoviesSearching {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loadingMore,
-    TResult Function(List<Movie> clients)? loaded,
+    TResult Function(List<Movie> movies)? loaded,
     TResult Function(String? search)? searching,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -864,7 +864,7 @@ class _$MoviesFailureImpl implements MoviesFailure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loadingMore,
-    required TResult Function(List<Movie> clients) loaded,
+    required TResult Function(List<Movie> movies) loaded,
     required TResult Function(String? search) searching,
     required TResult Function(Failure failure) failure,
   }) {
@@ -877,7 +877,7 @@ class _$MoviesFailureImpl implements MoviesFailure {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? loadingMore,
-    TResult? Function(List<Movie> clients)? loaded,
+    TResult? Function(List<Movie> movies)? loaded,
     TResult? Function(String? search)? searching,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -890,7 +890,7 @@ class _$MoviesFailureImpl implements MoviesFailure {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loadingMore,
-    TResult Function(List<Movie> clients)? loaded,
+    TResult Function(List<Movie> movies)? loaded,
     TResult Function(String? search)? searching,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),

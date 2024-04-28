@@ -7,12 +7,12 @@ part of 'rating.dart';
 // **************************************************************************
 
 _$RatingImpl _$$RatingImplFromJson(Map<String, dynamic> json) => _$RatingImpl(
-      source: json['source'] as String,
-      value: json['value'] as String,
+      source: json['Source'] as String,
+      value: json['Value'] as String,
     );
 
 Map<String, dynamic> _$$RatingImplToJson(_$RatingImpl instance) =>
     <String, dynamic>{
-      'source': instance.source,
-      'value': instance.value,
+      'Source': instance.source,
+      'Value': instance.value,
     };
