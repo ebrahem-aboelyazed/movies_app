@@ -1,4 +1,14 @@
 {
   "@@locale": "en",
-  "search": "search"
+  "search": "search",
+  "no_results_found": "No results found",
+  "home_txt": "Home",
+  "favorites": "Favorites",
+  "watchlist": "Watchlist",
+  "summary": "Summary",
+  "runtime": "Runtime",
+  "director": "Director",
+  "genre": "Genre",
+  "actors": "Actors",
+  "start_searching_for_movies": "Start Searching for Movies"
 }

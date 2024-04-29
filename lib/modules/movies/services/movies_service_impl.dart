@@ -17,6 +17,7 @@ class MoviesServiceImpl implements MoviesService {
     int? page,
   }) async {
     try {
+      if (name.isEmpty) return const Right(<Movie>[]);
       final params = {'s': name, 'page': page};
       final response = await _baseApi.getData(
         EndPoints.baseUrl,

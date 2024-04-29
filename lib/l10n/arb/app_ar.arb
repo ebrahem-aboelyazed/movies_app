@@ -1,4 +1,15 @@
 {
   "@@locale": "ar",
-  "search": "بحث"
+  "search": "بحث",
+  "no_results_found": "لا يوجد نتائج",
+  "home_txt": "الرئيسية",
+  "favorites": "المفضله",
+  "watchlist": "قائمة المشاهدة",
+  "summary": "الملخص",
+  "runtime": "المدة الزمنية",
+  "director": "المخرج",
+  "genre": "النوع",
+  "actors": "الممثلون",
+  "start_searching_for_movies": "ابدأ البحث عن الأفلام"
+
 }

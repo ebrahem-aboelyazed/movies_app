@@ -2,7 +2,6 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/common/widgets/cached_image.dart';
 import 'package:movies_app/modules/movies/movies.dart';
-import 'package:movies_app/utils/utils.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({required this.movie, super.key});
@@ -18,7 +17,6 @@ class MovieCard extends StatelessWidget {
       closedBuilder: (context, action) {
         return Container(
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.borderColor),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Column(

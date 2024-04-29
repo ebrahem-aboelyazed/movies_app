@@ -6,6 +6,6 @@ class Borders {
 
   static OutlineInputBorder searchBorder = OutlineInputBorder(
     borderSide: const BorderSide(color: AppColors.borderColor),
-    borderRadius: BorderRadius.circular(28),
+    borderRadius: BorderRadius.circular(8),
   );
 }

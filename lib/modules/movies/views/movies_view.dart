@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/common/common.dart';
 import 'package:movies_app/modules/movies/movies.dart';
+import 'package:movies_app/utils/utils.dart';
 
 class MoviesView extends StatelessWidget {
   const MoviesView({super.key});
@@ -9,52 +10,60 @@ class MoviesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final moviesCubit = context.read<MoviesCubit>();
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            children: [
-              const SizedBox(height: 12),
-              SearchField(
+    return SafeArea(
+      child: Column(
+        children: [
+          Container(
+            height: 100,
+            padding: const EdgeInsets.all(8),
+            decoration: const BoxDecoration(
+              color: AppColors.lightPrimaryColor,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10),
+              ),
+            ),
+            child: Center(
+              child: SearchField(
                 onChanged: (value) {
-                  moviesCubit
-                    ..name = value
-                    ..searchMovies();
+                  moviesCubit.searchMovies(query: value);
                 },
               ),
-              const SizedBox(height: 12),
-              Expanded(
-                child: BlocBuilder<MoviesCubit, MoviesState>(
-                  buildWhen: (previous, current) {
-                    return current is MoviesLoading ||
-                        current is MoviesLoaded ||
-                        current is MoviesFailure;
-                  },
-                  builder: (context, state) {
-                    return state.maybeWhen(
-                      initial: () {
-                        return Container();
-                      },
-                      loading: () {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      },
-                      failure: (failure) {
-                        return Container();
-                      },
-                      orElse: () {
-                        final movies = (state as MoviesLoaded).movies;
-                        return MoviesGridView(movies: movies);
-                      },
-                    );
-                  },
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+          const SizedBox(height: 12),
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 12),
+              child: BlocBuilder<MoviesCubit, MoviesState>(
+                buildWhen: (previous, current) {
+                  return current is MoviesLoading ||
+                      current is MoviesLoaded ||
+                      current is MoviesFailure ||
+                      current is MoviesInitial;
+                },
+                builder: (context, state) {
+                  return state.maybeWhen(
+                    initial: MoviesInitialView.new,
+                    loading: () {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    },
+                    failure: (failure) {
+                      return ErrorView(message: failure.message);
+                    },
+                    orElse: () {
+                      final movies = (state as MoviesLoaded).movies;
+                      if (movies.isEmpty) return const EmptyView();
+                      return MoviesGridView(movies: movies);
+                    },
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

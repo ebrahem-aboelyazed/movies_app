@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/common/widgets/cached_image.dart';
+import 'package:movies_app/l10n/l10n.dart';
 import 'package:movies_app/modules/movies/movies.dart';
 import 'package:movies_app/utils/utils.dart';
 
@@ -57,21 +58,17 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Display movie details (same as before)
-                      const Text(
-                        'Plot Summary:',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Text(
+                        '${context.l10n.summary}:',
+                        style: Styles.boldText,
                       ),
                       Text(movie.plot),
                       const SizedBox(height: 16),
                       Row(
                         children: [
-                          const Text(
-                            'Runtime:',
-                            style: TextStyle(
+                          Text(
+                            '${context.l10n.runtime}:',
+                            style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -86,12 +83,9 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                       const SizedBox(height: 8),
                       Row(
                         children: [
-                          const Text(
-                            'Director:',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                          Text(
+                            '${context.l10n.director}:',
+                            style: Styles.boldText,
                           ),
                           const SizedBox(width: 8),
                           Text(
@@ -101,22 +95,16 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                         ],
                       ),
                       const SizedBox(height: 8),
-                      const Text(
-                        'Genre:',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Text(
+                        '${context.l10n.genre}:',
+                        style: Styles.boldText,
                       ),
                       Text(movie.genre),
                       // Join genre list into a string
                       const SizedBox(height: 8),
-                      const Text(
-                        'Actors:',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Text(
+                        '${context.l10n.actors}:',
+                        style: Styles.boldText,
                       ),
                       Text(movie.actors),
                       // Join actors list into a string

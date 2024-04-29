@@ -37,7 +37,7 @@ class _MoviesGridViewState extends State<MoviesGridView> {
       fit: StackFit.expand,
       children: [
         RefreshIndicator(
-          onRefresh: cubit.searchMovies,
+          onRefresh: () async => cubit.executeSearch(),
           child: AlignedGridView.count(
             itemCount: widget.movies.length,
             controller: _scrollController,

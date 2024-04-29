@@ -44,7 +44,7 @@ class _SearchFieldState extends State<SearchField> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: widget.height ?? 48,
+      height: widget.height ?? 56,
       width: widget.width ?? context.width,
       child: TextField(
         controller: controller,
@@ -55,7 +55,7 @@ class _SearchFieldState extends State<SearchField> {
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 5,
-            vertical: 10,
+            vertical: 20,
           ),
           hintText: widget.hint ?? context.l10n.search,
           filled: true,

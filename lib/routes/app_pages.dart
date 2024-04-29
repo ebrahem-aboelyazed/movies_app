@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movies_app/modules/home/home.dart';
 import 'package:movies_app/modules/movies/movies.dart';
 
 part 'app_routes.dart';
@@ -16,7 +17,7 @@ class AppPages {
     routes: [
       GoRoute(
         path: Routes.home,
-        builder: (context, state) => const MoviesView(),
+        builder: (context, state) => const HomePage(),
       ),
       GoRoute(
         path: Routes.movieDetails,
