@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/gen/assets.gen.dart';
 import 'package:movies_app/l10n/l10n.dart';
-import 'package:movies_app/utils/utils.dart';
 
 class EmptyView extends StatelessWidget {
   const EmptyView({super.key});
@@ -14,9 +13,7 @@ class EmptyView extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 20),
-            Assets.svg.icEmptyData.svg(
-              height: context.heightPercentage(0.4),
-            ),
+            Assets.svg.icEmptyData.svg(height: 300),
             Center(
               child: Text(
                 context.l10n.no_results_found,

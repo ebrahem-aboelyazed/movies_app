@@ -2,17 +2,34 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
+import 'package:dio_cache_interceptor_hive_store/dio_cache_interceptor_hive_store.dart';
 import 'package:injectable/injectable.dart';
 import 'package:movies_app/core/core.dart';
+import 'package:movies_app/utils/utils.dart';
+import 'package:path_provider/path_provider.dart';
 
 @Singleton(as: BaseApi)
 class BaseApiImpl implements BaseApi {
-  BaseApiImpl(this._dio);
+  BaseApiImpl(
+    this._dio,
+  );
 
   final Dio _dio;
 
   @PostConstruct(preResolve: true)
   Future<void> init() async {
+    final cacheDir = await getTemporaryDirectory();
+    final cacheOptions = CacheOptions(
+      store: HiveCacheStore(
+        cacheDir.path,
+        hiveBoxName: AppConstants.cacheBox,
+      ),
+      policy: CachePolicy.forceCache,
+      hitCacheOnErrorExcept: [401, 404],
+      keyBuilder: (request) => request.uri.toString(),
+    );
+    _dio.interceptors.add(DioCacheInterceptor(options: cacheOptions));
     _dio.interceptors.add(BaseApiInterceptor());
   }
 
@@ -61,7 +78,8 @@ class BaseApiImpl implements BaseApi {
         cancelToken: cancelToken,
         onReceiveProgress: onReceiveProgress,
       );
-      return handleResponse(response);
+      return Right(response);
+      //return handleResponse(response);
     } catch (e) {
       log('Request Failed ====>$e', error: e);
       return const Left(Failure());

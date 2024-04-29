@@ -46,4 +46,6 @@ class RequestStatus {
 
   //PARSE_ERROR
   static const int parseError = 1006;
+
+//static const List<int> acceptedStatuses = [success, created, accepted];
 }

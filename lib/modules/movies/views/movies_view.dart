@@ -4,11 +4,18 @@ import 'package:movies_app/common/common.dart';
 import 'package:movies_app/modules/movies/movies.dart';
 import 'package:movies_app/utils/utils.dart';
 
-class MoviesView extends StatelessWidget {
+class MoviesView extends StatefulWidget {
   const MoviesView({super.key});
 
   @override
+  State<MoviesView> createState() => _MoviesViewState();
+}
+
+class _MoviesViewState extends State<MoviesView>
+    with AutomaticKeepAliveClientMixin {
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     final moviesCubit = context.read<MoviesCubit>();
     return SafeArea(
       child: Column(
@@ -19,8 +26,8 @@ class MoviesView extends StatelessWidget {
             decoration: const BoxDecoration(
               color: AppColors.lightPrimaryColor,
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10),
+                bottomLeft: Radius.circular(8),
+                bottomRight: Radius.circular(8),
               ),
             ),
             child: Center(
@@ -55,7 +62,9 @@ class MoviesView extends StatelessWidget {
                     },
                     orElse: () {
                       final movies = (state as MoviesLoaded).movies;
-                      if (movies.isEmpty) return const EmptyView();
+                      if (movies.isEmpty) {
+                        return const Center(child: EmptyView());
+                      }
                       return MoviesGridView(movies: movies);
                     },
                   );
@@ -67,4 +76,7 @@ class MoviesView extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

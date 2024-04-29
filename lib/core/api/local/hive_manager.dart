@@ -32,17 +32,17 @@ class HiveManager {
     return Hive.openBox<dynamic>(AppConstants.settings);
   }
 
-  Future<Box<Map<String, dynamic>>> initializeFavoritesBox() async {
+  Future<Box<String>> initializeFavoritesBox() async {
     final encryptionKey = await _setupSecureKey();
-    return Hive.openBox<Map<String, dynamic>>(
+    return Hive.openBox<String>(
       AppConstants.favorites,
       encryptionCipher: HiveAesCipher(encryptionKey),
     );
   }
 
-  Future<Box<Map<String, dynamic>>> initializeWatchListBox() async {
+  Future<Box<String>> initializeWatchListBox() async {
     final encryptionKey = await _setupSecureKey();
-    return Hive.openBox<Map<String, dynamic>>(
+    return Hive.openBox<String>(
       AppConstants.watchList,
       encryptionCipher: HiveAesCipher(encryptionKey),
     );

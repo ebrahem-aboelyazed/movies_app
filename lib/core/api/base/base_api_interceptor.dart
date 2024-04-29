@@ -3,12 +3,13 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 
 class BaseApiInterceptor implements Interceptor {
+  BaseApiInterceptor();
+
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers['content-type'] = 'application/json';
     options.headers['accept'] = 'application/json';
-    log('params ${options.queryParameters}');
-    log('Calling ${options.path}');
+    log('Calling ${options.uri}');
     handler.next(options);
   }
 

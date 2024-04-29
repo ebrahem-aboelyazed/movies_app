@@ -7,8 +7,6 @@ class SettingsStorage {
   Box<dynamic> get preferencesBox =>
       Hive.box<dynamic>(AppConstants.preferences);
 
-  Box<dynamic> get settingsBox => Hive.box<dynamic>(AppConstants.settings);
-
   String get localeName {
     final languageCode =
         preferencesBox.get(AppConstants.languageCode) as String?;

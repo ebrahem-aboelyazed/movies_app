@@ -9,6 +9,7 @@ class AppConstants {
   static const String moviesSearchDebounce = 'movies_search_debounce';
   static const String favorites = 'favorites';
   static const String watchList = 'watch_list';
+  static const String cacheBox = 'movies_cache_box';
   static const String settings = 'settings';
   static const String preferences = 'preferences';
   static const String languageCode = 'language_code';

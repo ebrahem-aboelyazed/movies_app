@@ -11,6 +11,7 @@ abstract class RegisterModule {
           baseUrl: EndPoints.baseUrl,
           receiveDataWhenStatusError: true,
           connectTimeout: const Duration(seconds: 10),
+          contentType: 'application/json',
           queryParameters: {
             'apiKey': dotenv.env[AppConstants.omdbApiKeyName],
           },

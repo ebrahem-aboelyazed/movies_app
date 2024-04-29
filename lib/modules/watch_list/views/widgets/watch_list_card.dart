@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/common/common.dart';
 import 'package:movies_app/modules/movies/movies.dart';
 
-class MovieCard extends StatelessWidget {
-  const MovieCard({required this.movie, super.key});
+class WatchListCard extends StatelessWidget {
+  const WatchListCard({required this.movie, super.key});
 
   final Movie movie;
 
@@ -15,7 +15,15 @@ class MovieCard extends StatelessWidget {
         return MovieDetailsPage(id: movie.imdbID);
       },
       closedBuilder: (context, action) {
-        return MovieDetailCard(movie: movie);
+        return Stack(
+          children: [
+            MovieDetailCard(movie: movie),
+            Positioned(
+              right: -5,
+              child: WatchListIcon(movie: movie),
+            ),
+          ],
+        );
       },
     );
   }

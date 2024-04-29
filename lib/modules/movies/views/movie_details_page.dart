@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/common/widgets/cached_image.dart';
+import 'package:movies_app/common/common.dart';
 import 'package:movies_app/l10n/l10n.dart';
 import 'package:movies_app/modules/movies/movies.dart';
 import 'package:movies_app/utils/utils.dart';
@@ -58,9 +58,23 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        '${context.l10n.summary}:',
-                        style: Styles.boldText,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              '${context.l10n.summary}:',
+                              style: Styles.boldText,
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              FavoriteIcon(movie: movie),
+                              WatchListIcon(movie: movie),
+                            ],
+                          ),
+                        ],
                       ),
                       Text(movie.plot),
                       const SizedBox(height: 16),
