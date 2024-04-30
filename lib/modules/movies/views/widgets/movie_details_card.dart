@@ -90,9 +90,12 @@ class MovieDetailsCard extends StatelessWidget {
                   Chip(
                     label: Text(
                       name,
-                      style: const TextStyle(fontSize: 14),
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
                     ),
-                    backgroundColor: AppColors.pastelBlue,
+                    backgroundColor: AppColors.lightSecondaryColor,
                     shape: const RoundedRectangleBorder(
                       side: BorderSide(color: Colors.transparent),
                     ),
@@ -115,9 +118,12 @@ class MovieDetailsCard extends StatelessWidget {
               return Chip(
                 label: Text(
                   '${rating.source} : ${rating.value}',
-                  style: const TextStyle(fontSize: 14),
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                  ),
                 ),
-                backgroundColor: const Color(0xff89CFF3),
+                backgroundColor: const Color(0xff435585),
                 shape: const RoundedRectangleBorder(
                   side: BorderSide(color: Colors.transparent),
                 ),

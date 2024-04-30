@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/modules/favorites/favorites.dart';
 import 'package:movies_app/modules/home/home.dart';
 import 'package:movies_app/modules/movies/movies.dart';
+import 'package:movies_app/modules/settings/settings.dart';
 import 'package:movies_app/modules/watch_list/watch_list.dart';
 import 'package:movies_app/utils/extensions/snackbars_extension.dart';
 
@@ -38,6 +39,7 @@ class HomePage extends StatelessWidget {
                     MoviesView(),
                     FavoritesView(),
                     WatchListView(),
+                    SettingsView(),
                   ],
                 ),
               );

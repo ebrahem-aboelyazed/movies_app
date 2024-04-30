@@ -16,5 +16,9 @@
   "country": "Country",
   "cast": "Cast",
   "something_went_wrong": "Something went wrong, please try again later",
-  "ratings": "Ratings"
+  "ratings": "Ratings",
+  "year": "Year",
+  "settings": "Settings",
+  "dark_mode": "Dark Mode"
+
 }

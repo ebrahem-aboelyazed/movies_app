@@ -18,4 +18,14 @@ class SettingsStorage {
       ..put(AppConstants.languageCode, languageCode)
       ..put(AppConstants.countryCode, countryCode);
   }
+
+  bool isDarkMode() {
+    final languageCode =
+        preferencesBox.get(AppConstants.mode) as bool? ?? true;
+    return languageCode;
+  }
+
+  void setMode({required bool isDark}) {
+    preferencesBox.put(AppConstants.mode, isDark);
+  }
 }

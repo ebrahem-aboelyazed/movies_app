@@ -3,11 +3,11 @@ import 'package:movies_app/utils/utils.dart';
 
 final lightTheme = ThemeData(
   scaffoldBackgroundColor: AppColors.lightBackgroundColor,
-  textTheme: const TextTheme(
-    titleLarge: TextStyle(color: Color(0xff0c1c3d)),
-    bodyLarge: TextStyle(color: Colors.black),
-    bodyMedium: TextStyle(color: Colors.black54),
-  ),
+  // textTheme: const TextTheme(
+  //   titleLarge: TextStyle(color: Color(0xff0c1c3d)),
+  //   bodyLarge: TextStyle(color: Colors.black),
+  //   bodyMedium: TextStyle(color: Colors.black54),
+  // ),
   colorScheme: ColorScheme.fromSeed(
     seedColor: AppColors.lightPrimaryColor,
   ),

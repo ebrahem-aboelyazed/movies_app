@@ -11,39 +11,38 @@ class WatchListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: BlocProvider<WatchListCubit>(
-        create: (context) {
-          return WatchListCubit(
-            watchListStorage: getIt.get<WatchListStorage>(),
-          );
-        },
-        child: Builder(
+    return BlocProvider<WatchListCubit>(
+      create: (context) {
+        return WatchListCubit(
+          watchListStorage: getIt.get<WatchListStorage>(),
+        );
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            context.l10n.watchlist,
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+        body: Builder(
           builder: (ctx) {
             final cubit = ctx.read<WatchListCubit>();
-            return Column(
-              children: [
-                AppBar(
-                  centerTitle: true,
-                  title: Text(
-                    context.l10n.watchlist,
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Expanded(
-                  child: ValueListenableBuilder<Box<String>>(
-                    valueListenable: cubit.getWatchListStream(),
-                    builder: (context, value, child) {
-                      final movies = cubit.getWatchList();
-                      if (movies.isEmpty) {
-                        return const Center(child: EmptyView());
-                      }
-                      return WatchListGridView(movies: movies);
-                    },
-                  ),
-                ),
-              ],
+            return Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 12,
+              ),
+              child: ValueListenableBuilder<Box<String>>(
+                valueListenable: cubit.getWatchListStream(),
+                builder: (context, value, child) {
+                  final movies = cubit.getWatchList();
+                  if (movies.isEmpty) {
+                    return const Center(child: EmptyView());
+                  }
+                  return WatchListGridView(movies: movies);
+                },
+              ),
             );
           },
         ),

@@ -33,13 +33,14 @@ class MovieInfoView extends StatelessWidget {
         Column(
           children: [
             Text(
-              context.l10n.director,
+              context.l10n.year,
               style: const TextStyle(
                 fontSize: 15,
               ),
             ),
+            const SizedBox(height: 4),
             Text(
-              movie.director.split(',').first,
+              movie.year,
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -50,14 +51,13 @@ class MovieInfoView extends StatelessWidget {
         Column(
           children: [
             Text(
-              context.l10n.country,
+              context.l10n.rating,
               style: const TextStyle(
                 fontSize: 15,
               ),
             ),
-            const SizedBox(height: 4),
             Text(
-              movie.country.split(',').first,
+              movie.rated,
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,

@@ -11,39 +11,38 @@ class FavoritesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: BlocProvider<FavoritesCubit>(
-        create: (context) {
-          return FavoritesCubit(
-            favoritesStorage: getIt.get<FavoritesStorage>(),
-          );
-        },
-        child: Builder(
+    return BlocProvider<FavoritesCubit>(
+      create: (context) {
+        return FavoritesCubit(
+          favoritesStorage: getIt.get<FavoritesStorage>(),
+        );
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            context.l10n.favorites,
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+        body: Builder(
           builder: (ctx) {
             final cubit = ctx.read<FavoritesCubit>();
-            return Column(
-              children: [
-                AppBar(
-                  centerTitle: true,
-                  title: Text(
-                    context.l10n.favorites,
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Expanded(
-                  child: ValueListenableBuilder<Box<String>>(
-                    valueListenable: cubit.getFavoritesStream(),
-                    builder: (context, value, child) {
-                      final movies = cubit.getFavorites();
-                      if (movies.isEmpty) {
-                        return const Center(child: EmptyView());
-                      }
-                      return FavoritesGridView(movies: movies);
-                    },
-                  ),
-                ),
-              ],
+            return Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 12,
+              ),
+              child: ValueListenableBuilder<Box<String>>(
+                valueListenable: cubit.getFavoritesStream(),
+                builder: (context, value, child) {
+                  final movies = cubit.getFavorites();
+                  if (movies.isEmpty) {
+                    return const Center(child: EmptyView());
+                  }
+                  return FavoritesGridView(movies: movies);
+                },
+              ),
             );
           },
         ),

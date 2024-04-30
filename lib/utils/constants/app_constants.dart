@@ -7,6 +7,7 @@ class AppConstants {
   static const String omdbApiKeyName = 'OMDB_API_KEY';
 
   static const String moviesSearchDebounce = 'movies_search_debounce';
+  static const String mode = 'mode';
   static const String favorites = 'favorites';
   static const String watchList = 'watch_list';
   static const String cacheBox = 'movies_cache_box';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movies_app/core/core.dart';
 import 'package:movies_app/l10n/l10n.dart';
 import 'package:movies_app/modules/movies/movies.dart';
@@ -11,6 +12,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settingsStorage = getIt.get<SettingsStorage>();
     return MultiBlocProvider(
       providers: [
         BlocProvider<MoviesCubit>(
@@ -23,12 +25,20 @@ class App extends StatelessWidget {
       ],
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-        child: MaterialApp.router(
-          routerConfig: getIt.get<AppPages>().router,
-          debugShowCheckedModeBanner: false,
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          theme: lightTheme,
-          supportedLocales: AppLocalizations.supportedLocales,
+        child: ValueListenableBuilder<Box<dynamic>>(
+          valueListenable:
+              Hive.box<dynamic>(AppConstants.preferences).listenable(),
+          builder: (context, value, child) {
+            final isDarkMode = settingsStorage.isDarkMode();
+            return MaterialApp.router(
+              routerConfig: getIt.get<AppPages>().router,
+              debugShowCheckedModeBanner: false,
+              locale: Locale(settingsStorage.localeName),
+              theme: isDarkMode ? darkTheme : lightTheme,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+            );
+          },
         ),
       ),
     );

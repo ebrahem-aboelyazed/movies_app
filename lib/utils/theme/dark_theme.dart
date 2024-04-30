@@ -3,13 +3,13 @@ import 'package:movies_app/utils/utils.dart';
 
 final darkTheme = ThemeData(
   scaffoldBackgroundColor: AppColors.darkBackgroundColor,
-  cardColor: const Color(0xff122651),
+  //cardColor: const Color(0xff222222),
   dividerColor: const Color(0xff777777),
-  textTheme: const TextTheme(
-    titleLarge: TextStyle(color: Color(0xfff5f5ff)),
-    bodyLarge: TextStyle(color: Color(0xff999999)),
-    bodyMedium: TextStyle(color: Color(0xff777777)),
-  ),
+  // textTheme: const TextTheme(
+  //   titleLarge: TextStyle(color: Color(0xfff5f5ff)),
+  //   bodyLarge: TextStyle(color: Color(0xff999999)),
+  //   bodyMedium: TextStyle(color: Color(0xff777777)),
+  // ),
   colorScheme: ColorScheme.fromSeed(
     seedColor: AppColors.darkPrimaryColor,
     secondary: AppColors.darkSecondaryColor,

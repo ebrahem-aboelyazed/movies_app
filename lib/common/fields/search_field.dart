@@ -59,7 +59,6 @@ class _SearchFieldState extends State<SearchField> {
           ),
           hintText: widget.hint ?? context.l10n.search,
           filled: true,
-          fillColor: Colors.white,
           alignLabelWithHint: true,
           prefixIcon: const Icon(
             Icons.search,
