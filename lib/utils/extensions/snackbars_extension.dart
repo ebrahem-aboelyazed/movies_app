@@ -7,7 +7,7 @@ extension SnackBarsExtensions on BuildContext {
   void showErrorSnackBar(Failure failure) {
     EasyThrottle.throttle(
       'error_snack_bar',
-      const Duration(seconds: 2),
+      const Duration(seconds: 4),
       () {
         ScaffoldMessenger.of(this).showSnackBar(
           SnackBar(

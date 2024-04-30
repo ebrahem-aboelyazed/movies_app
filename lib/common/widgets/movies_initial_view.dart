@@ -15,8 +15,10 @@ class MoviesInitialView extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 20),
-            Assets.svg.icMoviesBg.svg(
-              height: context.heightPercentage(0.5),
+            Center(
+              child: Assets.svg.icMoviesBg.svg(
+                height: context.heightPercentage(0.4),
+              ),
             ),
             const SizedBox(height: 10),
             Text(

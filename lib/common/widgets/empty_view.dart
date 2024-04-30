@@ -12,7 +12,6 @@ class EmptyView extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            const SizedBox(height: 20),
             Assets.svg.icEmptyData.svg(height: 300),
             Center(
               child: Text(
