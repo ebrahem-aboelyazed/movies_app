@@ -11,4 +11,3 @@ export './views/widgets/movie_details_card.dart';
 export './views/widgets/movie_genre_view.dart';
 export './views/widgets/movie_info_view.dart';
 export './views/widgets/movies_grid_view.dart';
-

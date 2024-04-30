@@ -11,7 +11,6 @@ class MovieDetailsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('Actors ===>${movie.actors}');
     return Padding(
       padding: const EdgeInsets.symmetric(
         vertical: 16,
