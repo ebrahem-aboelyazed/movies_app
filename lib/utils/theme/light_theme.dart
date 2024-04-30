@@ -13,6 +13,7 @@ final lightTheme = ThemeData(
   ),
   appBarTheme: const AppBarTheme(
     color: AppColors.lightPrimaryColor,
+    elevation: 0,
   ),
   iconTheme: const IconThemeData(color: Color(0xff5A5A5A)),
   inputDecorationTheme: InputDecorationTheme(

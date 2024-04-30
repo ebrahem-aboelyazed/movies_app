@@ -10,6 +10,12 @@
   "director": "المخرج",
   "genre": "النوع",
   "actors": "الممثلون",
-  "start_searching_for_movies": "ابدأ البحث عن الأفلام"
+  "start_searching_for_movies": "ابدأ البحث عن الأفلام",
+  "rating": "التقييم",
+  "language": "اللغة",
+  "country": "البلد",
+  "cast": "الطاقم",
+  "something_went_wrong": "حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقًا",
+  "ratings": "التقييمات"
 
 }

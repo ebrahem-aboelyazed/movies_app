@@ -10,5 +10,11 @@
   "director": "Director",
   "genre": "Genre",
   "actors": "Actors",
-  "start_searching_for_movies": "Start Searching for Movies"
+  "start_searching_for_movies": "Start Searching for Movies",
+  "rating": "Rating",
+  "language": "Language",
+  "country": "Country",
+  "cast": "Cast",
+  "something_went_wrong": "Something went wrong, please try again later",
+  "ratings": "Ratings"
 }
