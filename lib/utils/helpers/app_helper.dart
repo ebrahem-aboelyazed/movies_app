@@ -16,6 +16,7 @@ class AppHelper {
   static Future<void> _initHive() async {
     final hiveManager = getIt.get<HiveManager>();
     await Hive.initFlutter();
+    await hiveManager.initializeCacheBox();
     await hiveManager.initializeFavoritesBox();
     await hiveManager.initializeWatchListBox();
     await hiveManager.initializePrefsBox();

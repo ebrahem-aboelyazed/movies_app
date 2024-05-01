@@ -20,8 +20,7 @@ class SettingsStorage {
   }
 
   bool isDarkMode() {
-    final languageCode =
-        preferencesBox.get(AppConstants.mode) as bool? ?? true;
+    final languageCode = preferencesBox.get(AppConstants.mode) as bool? ?? true;
     return languageCode;
   }
 
