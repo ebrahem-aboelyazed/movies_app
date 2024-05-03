@@ -3,15 +3,32 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:movies_app/core/core.dart';
 
+/// Interceptor for caching API responses.
 class ApiCacheInterceptor implements Interceptor {
   ApiCacheInterceptor(this._apiCacheManager);
 
   final ApiCacheManager _apiCacheManager;
 
+  /// Generates a cache key based on the request options.
+  ///
+  /// Parameters:
+  ///   - [options] (RequestOptions): The request options.
+  ///
+  /// Returns:
+  ///   A String representing the cache key.
   String _generateCacheKey(RequestOptions options) {
     return options.uri.toString();
   }
 
+  /// Called when an exception was occurred during the request.
+  ///
+  /// Parameters:
+  ///   - [error] (DioException): The error that occurred.
+  ///   - [handler] (ErrorInterceptorHandler): The error interceptor handler.
+  ///
+  /// Returns:
+  ///   Resolves the error with cached response if available,
+  ///   otherwise passes the error to the next handler.
   @override
   void onError(DioException error, ErrorInterceptorHandler handler) {
     final isTimeOutError = error.type == DioExceptionType.connectionTimeout;
@@ -32,6 +49,16 @@ class ApiCacheInterceptor implements Interceptor {
     handler.next(error);
   }
 
+  /// Called when the request is about to be sent.
+  ///
+  /// Parameters:
+  ///   - [options] (RequestOptions): The request options.
+  ///   - [handler] (RequestInterceptorHandler):
+  ///   The request interceptor handler.
+  ///
+  /// Returns:
+  ///   Passes the request options to
+  ///   the next handler after setting accept header.
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     log('Calling ${options.uri}');
@@ -39,6 +66,16 @@ class ApiCacheInterceptor implements Interceptor {
     handler.next(options);
   }
 
+  /// Called when the response is about to be resolved.
+  ///
+  /// Parameters:
+  ///   - [response] (Response<dynamic>):
+  ///   The API response.
+  ///   - [handler] (ResponseInterceptorHandler):
+  ///   The response interceptor handler.
+  ///
+  /// Returns:
+  ///   Passes the response to the next handler after caching it if necessary.
   @override
   void onResponse(
     Response<dynamic> response,
