@@ -21,34 +21,58 @@ Movie _$MovieFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Movie {
   String get title => throw _privateConstructorUsedError;
+
   String get year => throw _privateConstructorUsedError;
+
   String get rated => throw _privateConstructorUsedError;
+
   String get released => throw _privateConstructorUsedError;
+
   String get runtime => throw _privateConstructorUsedError;
+
   String get genre => throw _privateConstructorUsedError;
+
   String get director => throw _privateConstructorUsedError;
+
   String get writer => throw _privateConstructorUsedError;
+
   String get actors => throw _privateConstructorUsedError;
+
   String get plot => throw _privateConstructorUsedError;
+
   String get language => throw _privateConstructorUsedError;
+
   String get country => throw _privateConstructorUsedError;
+
   String get awards => throw _privateConstructorUsedError;
+
   String get poster => throw _privateConstructorUsedError;
+
   List<Rating> get ratings => throw _privateConstructorUsedError;
+
   String get metascore => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'imdbRating')
   String get imdbRating => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'imdbVotes')
   String get imdbVotes => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'imdbID')
   String get imdbID => throw _privateConstructorUsedError;
+
   String get type => throw _privateConstructorUsedError;
+
   String get dvd => throw _privateConstructorUsedError;
+
   String get boxOffice => throw _privateConstructorUsedError;
+
   String get production => throw _privateConstructorUsedError;
+
   String get website => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $MovieCopyWith<Movie> get copyWith => throw _privateConstructorUsedError;
 }
@@ -57,6 +81,7 @@ mixin _$Movie {
 abstract class $MovieCopyWith<$Res> {
   factory $MovieCopyWith(Movie value, $Res Function(Movie) then) =
       _$MovieCopyWithImpl<$Res, Movie>;
+
   @useResult
   $Res call(
       {String title,
@@ -92,6 +117,7 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -229,6 +255,7 @@ abstract class _$$MovieImplCopyWith<$Res> implements $MovieCopyWith<$Res> {
   factory _$$MovieImplCopyWith(
           _$MovieImpl value, $Res Function(_$MovieImpl) then) =
       __$$MovieImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -472,6 +499,7 @@ class _$MovieImpl implements _Movie {
   @JsonKey()
   final String poster;
   final List<Rating> _ratings;
+
   @override
   @JsonKey()
   List<Rating> get ratings {
@@ -627,55 +655,79 @@ abstract class _Movie implements Movie {
 
   @override
   String get title;
+
   @override
   String get year;
+
   @override
   String get rated;
+
   @override
   String get released;
+
   @override
   String get runtime;
+
   @override
   String get genre;
+
   @override
   String get director;
+
   @override
   String get writer;
+
   @override
   String get actors;
+
   @override
   String get plot;
+
   @override
   String get language;
+
   @override
   String get country;
+
   @override
   String get awards;
+
   @override
   String get poster;
+
   @override
   List<Rating> get ratings;
+
   @override
   String get metascore;
+
   @override
   @JsonKey(name: 'imdbRating')
   String get imdbRating;
+
   @override
   @JsonKey(name: 'imdbVotes')
   String get imdbVotes;
+
   @override
   @JsonKey(name: 'imdbID')
   String get imdbID;
+
   @override
   String get type;
+
   @override
   String get dvd;
+
   @override
   String get boxOffice;
+
   @override
   String get production;
+
   @override
   String get website;
+
   @override
   @JsonKey(ignore: true)
   _$$MovieImplCopyWith<_$MovieImpl> get copyWith =>

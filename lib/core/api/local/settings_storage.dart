@@ -14,7 +14,7 @@ class SettingsStorage {
   /// If the locale name is not found, returns 'en' as the default locale.
   String get localeName {
     final languageCode =
-    preferencesBox.get(AppConstants.languageCode) as String?;
+        preferencesBox.get(AppConstants.languageCode) as String?;
     return languageCode ?? 'en';
   }
 
