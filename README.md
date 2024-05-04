@@ -8,10 +8,11 @@ Movies App
 
 This project is using [OMDb] api for fetching movies data.
 API Keys are stored in a .env file for security
-To make the app work properly please create a .env file and add the following key with the API key
-value
-that you will get from the [OMDb] API
-[OMDB_API_KEY] This is the name inside the .env file that corresponds to the [apikey]
+To make the app work properly please follow the following instructions
+
+- create a .env file
+- add the following key name [OMDB_API_KEY]
+- add value that you will get from the [OMDb] API to the key name inside the .env file
 
 ## Working with Translations 🌐
 
